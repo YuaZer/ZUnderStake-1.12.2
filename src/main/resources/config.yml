@@ -1,0 +1,43 @@
+Message:
+  reload: "&a重载成功"
+  errorExist: "&c%stakeID%并不在配置文件中存在"
+  errorAmount: "&c%stakeID%的奖励砖块与安慰奖砖块的总合超过了砖块总合"
+  startErrorStakeID: "&c该地下城的配置有误，请输入/zunderstake check %stakeID%并检查后台输出"
+  executeCheck: "&a请查看控制台内容,并根据控制台内容修改您的地下城配置"
+  errorBrickID: "&c您所购买的砖块是不存在的哦!"
+  successStart: "&a地下城%stakeID%开启成功"
+  notRunning: "&c该地下城并未进行!"
+  successStop: "&a成功停止该地下城"
+  checkSuccess: "&a该%stakeID%配置无误!"
+  brickHasPlayer: "&c砖块已经有玩家选取了!"
+  successChooseBrick: "&a您成功选取该砖块!"
+PapiHook:
+  isOpen:
+    true: "已开启"
+    false: "未开启"
+UnderStakeSetting:
+  #地下城ID名
+  test-level-1:
+    #砖块数量
+    brickAmount: 6
+    #地下城超过多少秒没有占满方块就取消重开
+    overTime: 60
+    #宝藏砖块数量
+    rewardBrick: 1
+    #安慰奖砖块数量
+    defaultBrick: 5
+    #宝藏奖励指令
+    rewardCommands:
+      - "say %player%获得了地下城的宝藏"
+      - "money give %player% 0.57"
+    #安慰奖奖励指令
+    defaultCommands:
+      - "say %player%获得了安慰奖"
+      - "give %player% SAND 3"
+    #超过时间没有占满砖块下的返还指令
+    backCommands:
+      - "money give %player% 0.1"
+      - "say 该地下城在规定时间内并没有人将砖块选择完,结束该回合并返还奖励"
+    #轮空指令
+    nullCommands:
+      - "msg %player% 您什么都没有得到哦!"

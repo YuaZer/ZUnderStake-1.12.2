@@ -1,0 +1,7 @@
+name: ZUnderStake
+version: '${version}'
+main: io.github.yuazer.zunderstake.Main
+commands:
+  zunderstake:
+    aliases:
+      - zus
