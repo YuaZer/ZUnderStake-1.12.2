@@ -17,7 +17,7 @@ public class MainCommand implements CommandExecutor {
             if (args.length == 0 && sender.isOp()) {
                 return true;
             }
-            if (args[0].equalsIgnoreCase("help")&&sender.isOp()){
+            if (args[0].equalsIgnoreCase("help") && sender.isOp()) {
                 sender.sendMessage("§a/zunderstake -> /zus");
                 sender.sendMessage("§a/zunderstake start 地下城ID §7- §e开启一场地下城");
                 sender.sendMessage("§a/zunderstake stop 地下城ID §7- §e强制结束一场地下城");
@@ -39,6 +39,10 @@ public class MainCommand implements CommandExecutor {
                             .replace("%stakeID%", stakeID));
                     return true;
                 }
+                if (Main.getRunnableManager().getRunningStake().contains(stakeID)) {
+                    sender.sendMessage(YamlUtils.getConfigMessage("Message.alreadyRunning"));
+                    return true;
+                }
                 //TODO 开启地下城方法
                 Main.getRunnableManager().startRunnable(stakeID, 0L, 20L);
                 sender.sendMessage(YamlUtils.getConfigMessage("Message.successStart").replace("%stakeID%", stakeID));
@@ -50,7 +54,7 @@ public class MainCommand implements CommandExecutor {
                 String stakeID = args[1];
                 int brickID = Integer.parseInt(args[2]);
                 int brickAmount = YamlUtils.getConfigInt("UnderStakeSetting." + stakeID + ".brickAmount");
-                if (!Main.getRunnableManager().getRunningStake().contains(stakeID)){
+                if (!Main.getRunnableManager().getRunningStake().contains(stakeID)) {
                     sender.sendMessage(YamlUtils.getConfigMessage("Message.notRunning"));
                     return true;
                 }

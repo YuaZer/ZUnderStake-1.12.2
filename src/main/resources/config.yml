@@ -11,6 +11,7 @@ Message:
   checkSuccess: "&a该%stakeID%配置无误!"
   brickHasPlayer: "&c砖块已经有玩家选取了!"
   successChooseBrick: "&a您成功选取该砖块!"
+  alreadyRunning: "&c该地下城已经开启了哦!"
 PapiHook:
   isOpen:
     true: "已开启"
