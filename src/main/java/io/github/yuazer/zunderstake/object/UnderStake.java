@@ -3,9 +3,9 @@ package io.github.yuazer.zunderstake.object;
 import java.util.List;
 
 public class UnderStake {
-    private List<Brick> bricks;
-    private String stakeID;
-    private int overTime;
+    private final List<Brick> bricks;
+    private final String stakeID;
+    private final int overTime;
 
     public int getOverTime() {
         return overTime;

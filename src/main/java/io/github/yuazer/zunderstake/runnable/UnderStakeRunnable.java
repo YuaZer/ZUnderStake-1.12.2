@@ -8,10 +8,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.List;
 
 public class UnderStakeRunnable extends BukkitRunnable {
-    private String stakeID;
-    private int overTime;
-    private List<Brick> bricks;
-    private UnderStake underStake;
+    private final String stakeID;
+    private final List<Brick> bricks;
+    private final UnderStake underStake;
     private static int nowTime ;
 
     public  int getNowTime() {
@@ -25,7 +24,7 @@ public class UnderStakeRunnable extends BukkitRunnable {
     public UnderStakeRunnable(UnderStake underStake) {
         this.underStake = underStake;
         this.stakeID = underStake.getStakeID();
-        this.overTime = underStake.getOverTime();
+        int overTime = underStake.getOverTime();
         this.bricks = underStake.getBricks();
         nowTime = overTime;
     }
