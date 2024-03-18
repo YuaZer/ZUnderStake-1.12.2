@@ -22,6 +22,10 @@ public class UnderStakeHook extends PlaceholderExpansion {
         return Main.getInstance().getDescription().getVersion();
     }
     @Override
+    public boolean persist() {
+        return true;
+    }
+    @Override
     public String onPlaceholderRequest(Player p, String indentifier) {
         if (p == null) {
             return "";

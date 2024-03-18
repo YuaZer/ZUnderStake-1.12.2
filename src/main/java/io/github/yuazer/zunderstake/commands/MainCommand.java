@@ -23,6 +23,7 @@ public class MainCommand implements CommandExecutor {
                 sender.sendMessage("§a/zunderstake stop 地下城ID §7- §e强制结束一场地下城");
                 sender.sendMessage("§a/zunderstake stake 地下城ID 砖块ID §7- §e选取指定砖块");
                 sender.sendMessage("§a/zunderstake check 地下城ID §7- §e检查该地下城ID的配置内容");
+                sender.sendMessage("§a/zunderstake reload §7- §e重载地下城配置");
                 return true;
             }
             if (args[0].equalsIgnoreCase("reload") && sender.isOp()) {

@@ -31,8 +31,8 @@ public class BukkitRunnableManager {
     }
 
     //创建一个方法，用来添加一个String和BukkitRunnable的对应关系
-    public void put(String key1, UnderStakeRunnable runnable) {
-        runnables.put(key1, runnable);
+    public void put(String key, UnderStakeRunnable runnable) {
+        runnables.put(key, runnable);
     }
 
     public HashMap<String, UnderStakeRunnable> getRunnables() {
@@ -40,36 +40,36 @@ public class BukkitRunnableManager {
     }
 
     //创建一个方法，用来移除一个String和BukkitRunnable的对应关系
-    public void remove(String key1) {
+    public void remove(String key) {
         //从HashMap中移除name对应的runnable
-        runnables.remove(key1);
+        runnables.remove(key);
     }
 
 
-    public void startRunnable(String key1, long delay, long period) {
+    public void startRunnable(String key, long delay, long period) {
         //从HashMap中获取name对应的runnable
-        UnderStakeRunnable runnable = runnables.get(key1);
+        UnderStakeRunnable runnable = runnables.get(key);
         //判断runnable是否存在
         if (runnable != null) {
-            runningStake.add(key1);
+            runningStake.add(key);
             //如果存在，调用runTaskTimer方法，传入插件实例，延迟时间和周期时间
             runnable.runTaskTimerAsynchronously(plugin, delay, period);
         }
     }
 
-    public UnderStakeRunnable getRunnable(String key1) {
-        return runnables.get(key1);
+    public UnderStakeRunnable getRunnable(String key) {
+        return runnables.get(key);
     }
 
-    public void stopRunnable(String key1) {
+    public void stopRunnable(String key) {
         //从HashMap中获取name对应的runnable
-        UnderStakeRunnable runnable = runnables.get(key1);
+        UnderStakeRunnable runnable = runnables.get(key);
         //判断runnable是否存在
         if (runnable != null) {
-            runningStake.remove(key1);
+            runningStake.remove(key);
             //如果存在，调用cancel方法，取消任务
             runnable.cancel();
-            Main.loadStakeRunnableByID(key1);
+            Main.loadStakeRunnableByID(key);
         }
     }
 

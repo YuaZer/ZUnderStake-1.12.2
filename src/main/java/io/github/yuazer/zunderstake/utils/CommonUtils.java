@@ -51,14 +51,17 @@ public class CommonUtils {
     public static List<String> getBrickRewardCommands(String stakeID) {
         return YamlUtils.getConfigStringList("UnderStakeSetting." + stakeID + ".rewardCommands");
     }
+
     //获取砖块安慰奖励
     public static List<String> getBrickDefaultCommands(String stakeID) {
         return YamlUtils.getConfigStringList("UnderStakeSetting." + stakeID + ".defaultCommands");
     }
+
     //获取砖块轮空指令
     public static List<String> getBrickNullCommands(String stakeID) {
         return YamlUtils.getConfigStringList("UnderStakeSetting." + stakeID + ".nullCommands");
     }
+
     //获取砖块返回指令
     public static List<String> getBrickBackCommands(String stakeID) {
         return YamlUtils.getConfigStringList("UnderStakeSetting." + stakeID + ".backCommands");
